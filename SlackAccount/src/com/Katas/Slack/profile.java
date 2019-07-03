@@ -15,6 +15,7 @@ public class profile {
 	public String email;
 	public String first_name;
 	public String last_name;
+	public String image_original;
 	public String image_24;
 	public String image_32;
 	public String image_48;

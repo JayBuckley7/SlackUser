@@ -11,7 +11,8 @@ public String ID = "UL46VD145";
 	@Test
 	public void ConstructorTest() {
 		SlackUser su = new SlackUser(Token,ID);
-		String reply = su.Do();		
+		String reply = su.getResponce();		
+		
 		assertEquals(!reply.equalsIgnoreCase("failed!") , true);	
 	}
 }
