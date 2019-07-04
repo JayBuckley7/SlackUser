@@ -11,8 +11,8 @@ https://api.slack.com/methods/users.info
 <pre>
 git clone https://github.com/JayBuckley7/SlackUser
 cd SlackUser/ 
-mvn clean install 
-java -cp ./target/SlackAccount-0.0.1-SNAPSHOT.jar com.codingdojo.pokerhandskata.Main
+mvn clean install   
+java -jar ./target/SlackAccount-0.0.1-SNAPSHOT.jar 
 </pre>
 
 ## Instruction to use as extension
