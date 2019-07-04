@@ -13,10 +13,8 @@ public class Main {
 	
 	//
 	//http://aeirola.github.io/slack-irc-client/
-	//by clicking generate token and selecting a workspace you are logged into
-	
-	//ID can be obtained by clicking on a member n the workspace and selecting MemberID
-	
+	//by clicking generate token and selecting a workspace you are logged into	
+	//ID can be obtained by clicking on a member n the workspace and selecting MemberID	
 	public static void main(String[] args) {
 		String Token = "xoxp-";
 		String ID = "";
