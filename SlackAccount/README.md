@@ -19,7 +19,7 @@ java -cp ./target/SlackAccount-0.0.1-SNAPSHOT.jar com.codingdojo.pokerhandskata.
 <pre>
     // create a new "slack user"
     //call supported methods to get info
-    //support every property listed in the https://api.slack.com/methods/users.info API doc    
+    //supports every property listed in the https://api.slack.com/methods/users.info API doc    
 	  	SlackUser su = new SlackUser(Token,ID);
    		System.out.println("\nSlack user info--------------");
 		System.out.println("Profile name: "+ su.getProfileName());
