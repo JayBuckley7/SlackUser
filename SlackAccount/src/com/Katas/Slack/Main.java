@@ -16,7 +16,7 @@ public class Main {
 	//by clicking generate token and selecting a workspace you are logged into	
 	//ID can be obtained by clicking on a member n the workspace and selecting MemberID	
 	public static void main(String[] args) {
-		String Token = "xoxp-";
+		String Token = "xoxp- ";
 		String ID = "";
 		Scanner in = new Scanner(System.in);
 		System.out.println("you can get a token for your workspace here");

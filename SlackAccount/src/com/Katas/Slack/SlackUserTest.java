@@ -8,7 +8,7 @@ public class SlackUserTest {
 //you can get a token for your workspace here
 //http://aeirola.github.io/slack-irc-client/
 //by clicking generate token and selecting a workspace you are logged into
-public String Token = "xoxp-";
+public String Token = "xoxp- ";
 //ID can be obtained by clicking on a member n the workspace and selecting MemberID
 public String ID = "UL46VD145";
 	@Test
