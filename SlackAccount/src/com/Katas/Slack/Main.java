@@ -26,8 +26,10 @@ public class Main {
 		System.out.println("\nID can be obtained by clicking on a member n the workspace and selecting MemberID");
 		System.out.print("Please enter in a Slack Member ID in this workspace: ");
 		ID = in.nextLine();
-		SlackUser su = new SlackUser(Token,ID);
+		SlackUser su = new SlackUser(Token,ID);						
 		System.out.println("\nSlack user info--------------");
+		
+		if(su.getError().equals("SUCCSESS")) {	
 		System.out.println("Profile name: "+ su.getProfileName());
 		System.out.println("Real name: "+ su.getRealNamePretty());
 		System.out.println("Team ID: "+ su.getTeamID());
@@ -37,6 +39,9 @@ public class Main {
 		System.out.println("Is_Owner?: "+su.getIsOwner());
 		System.out.println("Is_Primary_Owner?: "+su.getIsPrimaryOwner());
 		System.out.println("Is_Bot?: "+su.getIsBot());
+		}else {
+			System.out.println(su.getError());
+		}
 	}
 
 }
