@@ -7,7 +7,7 @@ The Idea is to use the compiled Jar as an extendable object for the Slack user.i
 https://api.slack.com/methods/users.info
 </pre>
 
-## Instruction and Use the main
+## Instruction to use the main
 <pre>
 git clone https://github.com/JayBuckley7/SlackUser
 cd SlackUser/ 
