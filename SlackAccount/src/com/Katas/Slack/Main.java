@@ -37,13 +37,6 @@ public class Main {
 		System.out.println("Is_Owner?: "+su.getIsOwner());
 		System.out.println("Is_Primary_Owner?: "+su.getIsPrimaryOwner());
 		System.out.println("Is_Bot?: "+su.getIsBot());
-		
-		
-		
-		
-		
-		
-
 	}
 
 }
