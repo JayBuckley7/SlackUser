@@ -20,11 +20,11 @@ public class SlackUser extends AIOUser {
 	private profile profile;
 
 	public SlackUser(String Token, String UserID) {
-		super("", "", "");
+		super("", "", ""); //could pass in email and stuff in here if we wanted to overide it's old info
 
 		this.Token = Token;
 		this.ID = UserID;
-		String reply = getResponce();
+		getUserFromResponce(getResponce());
 	}
   /***
    * Gets the JSON responce as string into a variable
@@ -43,8 +43,8 @@ public class SlackUser extends AIOUser {
 				// add request header
 				con.setRequestProperty("User-Agent", "Mozilla/5.0");
 				int responseCode = con.getResponseCode();
-				System.out.println("\nSending 'GET' request to URL : " + qry);
-				System.out.println("Response Code : " + responseCode);
+				//System.out.println("\nSending 'GET' request to URL : " + qry);
+				//System.out.println("Response Code : " + responseCode);
 				BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
 				String inputLine;
 				StringBuffer response = new StringBuffer();
@@ -69,6 +69,7 @@ public class SlackUser extends AIOUser {
 	}
 	/***
 	 * populates the user object based on the Json it's handed
+	 * If responce fails a property called error will fill with the error message. 
 	 * @param reply 
 	 * Valid JsonString reply (get it from getResponce())
 	 */
@@ -78,20 +79,66 @@ public class SlackUser extends AIOUser {
 		try {
 			myResponse = new JSONObject(reply);
 			this.getResponce = gson.fromJson(myResponse.toString(), InfoResponce.class);
-			this.user = getResponce.user;
-			this.profile = user.profile;
+			
+			if(this.getResponce.error == null) {			
+				this.user = getResponce.user;				
+				this.profile = user.profile;					
+			}else {
+				String str = getResponce.error; 
+				//for what I'm doing the switch isnt needed
+				//but i could potentially handle them differently if I wanted to
+		        switch(str) 
+		        { 
+		            case "not_authed": 
+		                throw new Exception(str);
+		            case "invalid_auth": 
+		                throw new Exception(str);
+		            case "user_not_found": 
+		                throw new Exception(str);
+		            case "user_not_visible": 
+		            	throw new Exception(str);
+		            case "account_inactive": 
+		            	throw new Exception(str); 
+		            case "token_revoked": 
+		            	throw new Exception(str);
+		            case "no_permission": 
+		            	throw new Exception(str);
+		            case "org_login_required": 
+		            	throw new Exception(str);
+		            case "ekm_access_denied": 
+		            	throw new Exception(str);
+		            case "request_timeout": 
+		            	throw new Exception(str); 
+		            case "fatal_error": 
+		            	throw new Exception(str);		           
+		            default: 
+		            	throw new Exception("no_match");
+		        } 
+			}
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch(Exception E) {
+			//System.out.println(E.getMessage());
 		}
 		
 	}
 	
+	/**
+	 * @return Error message from responce 
+	 */
+	public String getError() {	
+		String val = "SUCCSESS";
+		if(this.getResponce.error != null) {
+			val = getResponce.error;
+		}
+		return val;
+	}
 	
 	/**
 	 * @return users Slack ID
 	 */
-	public String getID() {
+	public String getID() {	
 		return user.id;
 	}
 	
