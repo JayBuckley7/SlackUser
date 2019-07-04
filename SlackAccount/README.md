@@ -17,15 +17,11 @@ java -cp ./target/SlackAccount-0.0.1-SNAPSHOT.jar com.codingdojo.pokerhandskata.
 
 ## Instruction to use as extension
 <pre>
-    //populate these
-		String Token = "xoxp-";
-		String ID = "";
     // create a new "slack user"
-	  SlackUser su = new SlackUser(Token,ID);
     //call supported methods to get info
-    //support every property listed in the https://api.slack.com/methods/users.info API doc
-    /*****
-    System.out.println("\nSlack user info--------------");
+    //support every property listed in the https://api.slack.com/methods/users.info API doc    
+	  	SlackUser su = new SlackUser(Token,ID);
+   		System.out.println("\nSlack user info--------------");
 		System.out.println("Profile name: "+ su.getProfileName());
 		System.out.println("Real name: "+ su.getRealNamePretty());
 		System.out.println("Team ID: "+ su.getTeamID());
@@ -35,7 +31,6 @@ java -cp ./target/SlackAccount-0.0.1-SNAPSHOT.jar com.codingdojo.pokerhandskata.
 		System.out.println("Is_Owner?: "+su.getIsOwner());
 		System.out.println("Is_Primary_Owner?: "+su.getIsPrimaryOwner());
 		System.out.println("Is_Bot?: "+su.getIsBot());
-    *******/
 </pre>
 
 ## Sample output
