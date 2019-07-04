@@ -15,6 +15,29 @@ mvn clean install
 java -cp ./target/SlackAccount-0.0.1-SNAPSHOT.jar com.codingdojo.pokerhandskata.Main
 </pre>
 
+## Instruction to use as extension
+<pre>
+    //populate these
+		String Token = "xoxp-";
+		String ID = "";
+    // create a new "slack user"
+	  SlackUser su = new SlackUser(Token,ID);
+    //call supported methods to get info
+    //support every property listed in the https://api.slack.com/methods/users.info API doc
+    /*****
+    System.out.println("\nSlack user info--------------");
+		System.out.println("Profile name: "+ su.getProfileName());
+		System.out.println("Real name: "+ su.getRealNamePretty());
+		System.out.println("Team ID: "+ su.getTeamID());
+		System.out.println("Time Zone: "+su.getTimeZonePretty());
+		System.out.println("Email: "+su.getEmail());
+		System.out.println("Is_Admin?: "+su.getIsAdmin());
+		System.out.println("Is_Owner?: "+su.getIsOwner());
+		System.out.println("Is_Primary_Owner?: "+su.getIsPrimaryOwner());
+		System.out.println("Is_Bot?: "+su.getIsBot());
+    *******/
+</pre>
+
 ## Sample output
 <pre>
 you can get a token for your workspace here
